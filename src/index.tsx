@@ -3,7 +3,10 @@ import { StrictMode, CSSProperties, useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { Article } from './components/article/Article';
 import { ArticleParamsForm } from './components/article-params-form/ArticleParamsForm';
-import { ArticleStateType, defaultArticleState } from './constants/articleProps';
+import {
+	ArticleStateType,
+	defaultArticleState,
+} from './constants/articleProps';
 import './styles/index.scss';
 import styles from './styles/index.module.scss';
 
@@ -11,35 +14,25 @@ const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
 
 const App = () => {
-	const [articleState, setArticleState] = useState<ArticleStateType>(defaultArticleState);
+	const [articleState, setArticleState] =
+		useState<ArticleStateType>(defaultArticleState);
 
 	// Состояния страницы
 	const [fontFamilyValue, setFontFamilyValue] = useState<string>(
-		defaultArticleState
-		.fontFamilyOption
-		.value
+		defaultArticleState.fontFamilyOption.value
 	);
 	const [fontColorValue, setFontColorValue] = useState<string>(
-		defaultArticleState
-		.fontColor
-		.value
+		defaultArticleState.fontColor.value
 	);
 	const [backgroundColorValue, setBackgroundColorValue] = useState<string>(
-		defaultArticleState
-		.backgroundColor
-		.value
+		defaultArticleState.backgroundColor.value
 	);
 	const [contentWidthValue, setContentWidthValue] = useState<string>(
-		defaultArticleState
-		.contentWidth
-		.value
+		defaultArticleState.contentWidth.value
 	);
 	const [fontSizeValue, setFontSizeValue] = useState<string>(
-		defaultArticleState
-		.fontSizeOption
-		.value
+		defaultArticleState.fontSizeOption.value
 	);
-
 
 	useEffect(() => {
 		setFontFamilyValue(articleState.fontFamilyOption.value);
@@ -51,7 +44,7 @@ const App = () => {
 
 	const handleChange = (changedArticleState: ArticleStateType) => {
 		setArticleState(changedArticleState);
-	}
+	};
 
 	return (
 		<div
@@ -64,14 +57,9 @@ const App = () => {
 					'--container-width': contentWidthValue,
 					'--bg-color': backgroundColorValue,
 				} as CSSProperties
-					
-			}
-		>
-			<ArticleParamsForm 
-				articleState={articleState}
-				onChange={handleChange}
-			/>
-			<Article />	
+			}>
+			<ArticleParamsForm articleState={articleState} onChange={handleChange} />
+			<Article />
 		</div>
 	);
 };

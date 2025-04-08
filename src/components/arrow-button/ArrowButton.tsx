@@ -11,7 +11,7 @@ interface ArrowButtonProps {
 	onClick: OnClick;
 }
 
-export const ArrowButton = ({state, onClick}: ArrowButtonProps) => {
+export const ArrowButton = ({ state, onClick }: ArrowButtonProps) => {
 	return (
 		/* Не забываем указаывать role и aria-label атрибуты для интерактивных элементов */
 		<div
@@ -19,9 +19,12 @@ export const ArrowButton = ({state, onClick}: ArrowButtonProps) => {
 			aria-label='Открыть/Закрыть форму параметров статьи'
 			tabIndex={0}
 			onClick={onClick}
-			className={clsx(styles.container, state ? styles.container_open : null)}
-		>
-			<img src={arrow} alt='иконка стрелочки' className={clsx(styles.arrow, state ? styles.arrow_open : null)} />
+			className={clsx(styles.container, state ? styles.container_open : null)}>
+			<img
+				src={arrow}
+				alt='иконка стрелочки'
+				className={clsx(styles.arrow, state ? styles.arrow_open : null)}
+			/>
 		</div>
 	);
 };

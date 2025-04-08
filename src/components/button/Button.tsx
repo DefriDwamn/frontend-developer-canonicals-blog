@@ -15,8 +15,9 @@ export const Button = ({
 		<button
 			className={type === 'reset' ? styles.reset_button : styles.submit_button}
 			type={type}
-			onClick={(e) => {if (onClick) onClick(e)}}
-		>
+			onClick={(e) => {
+				if (onClick) onClick(e);
+			}}>
 			<Text weight={800} uppercase dynamicButton>
 				{title}
 			</Text>
